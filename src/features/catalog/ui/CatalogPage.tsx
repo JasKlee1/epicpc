@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { Product } from "@/entities/product/model/product.types";
 
 // T1 - realizado por: JHAN CARLO SANABRIA VEGA
+// T3 - mejora de conexión frontend con API 
 
 export default function CatalogPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -14,8 +15,14 @@ export default function CatalogPage() {
     const q = category ? `?category=${category}` : "";
     fetch(`/api/products${q}`)
       .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch(() => setProducts([]));
+      .then((data) => {
+        console.log("✅ Conexión exitosa con la API. Productos recibidos:", data);
+        setProducts(data);
+      })
+      .catch((error) => {
+        console.error("❌ Error al conectar con la API:", error);
+        setProducts([]);
+      });
   }, [category]);
 
   const filtered = products.filter((p) =>
