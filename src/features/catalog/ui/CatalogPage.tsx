@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { Product } from "@/entities/product/model/product.types";
 
+// T1 - realizado por: JHAN CARLO SANABRIA VEGA
+
 export default function CatalogPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [filter, setFilter] = useState("");
