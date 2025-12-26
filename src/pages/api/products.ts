@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+//API Creada por Valentina Paez--T2
+
 const products = [
   {
     id: 1,
